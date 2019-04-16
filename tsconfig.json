@@ -2,8 +2,10 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
+    "declaration": true,
+    "outDir": "./dist",
     "lib": ["dom", "es5", "es6", "es7", "esnext", "esnext.asynciterable"],
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -13,12 +15,11 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": false, // Avoid noise in our resolvers when we use DI
+    "noUnusedLocals": false,
     "strict": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": false,
     "types": ["jest", "isomorphic-fetch", "node"]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules/**/*", "generated/**/*"]
+  "exclude": ["node_modules/**/*", "generated/**/*", "tools/**/*"]
 }
