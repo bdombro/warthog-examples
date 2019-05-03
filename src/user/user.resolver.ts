@@ -9,7 +9,7 @@ import {
   UserWhereArgs,
   UserWhereInput,
   UserWhereUniqueInput
-} from '../generated';
+} from '../../generated';
 
 import { User } from './user.model';
 

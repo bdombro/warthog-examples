@@ -7,7 +7,7 @@ import { Container } from 'typedi';
 dotenv.config();
 
 import { getServer } from '../src/server';
-import { UserStatus } from '../src/user.model';
+import { UserStatus } from '../src/user/user.model';
 
 if (process.env.NODE_ENV !== 'development') {
   throw new Error('Seeding only available in development environment');

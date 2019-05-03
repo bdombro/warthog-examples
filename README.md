@@ -1,8 +1,33 @@
-# Setup
+# warthog-migration-example
 
-Run `yarn bootstrap && yarn start`
+This demo is a [warthog](https://github.com/goldcaddy77/warthog) typeorm + apollo graphql framework demo app.
 
-# Bootstrapping the App
+Features:
+- migration generation and autorun on start
+- modular style models
+- semi-functional code-sharing between models towards auto-CRUD
+- fully functional dev environment with dockerized postgresql
+- linting and prettify git commit hooks
+- testing foundation 
+
+## Status
+
+Working and informative!
+
+
+## Setup
+
+First, ensure Docker is running. Then,
+
+```
+yarn postgres:start
+sleep 10
+yarn bootstrap
+yarn start
+```
+
+
+## Bootstrapping the App
 
 Running `yarn bootstrap` will do the following:
 
@@ -11,7 +36,7 @@ Running `yarn bootstrap` will do the following:
 - Generate code in `generated` folder
 
 
-# Typeorm Command Examples
+## Typeorm Command Examples
 
 - To bypass migrations and force a sync of schema
 `yarn typeorm:cli schema:sync`

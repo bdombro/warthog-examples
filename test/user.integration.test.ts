@@ -10,7 +10,7 @@ import { getApp } from '../src/app';
 const app = getApp({ container: Container }, { logging: false });
 
 import { Binding } from '../generated/binding';
-import { User, UserStatus } from '../src/user.model';
+import { User, UserStatus } from '../src/user/user.model';
 
 let binding: Binding;
 let testUser: any;
