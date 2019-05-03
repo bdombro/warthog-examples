@@ -1,8 +1,8 @@
 version: '3.6'
 services:
   postgres:
-    image: postgres
-    # image: postgres:10-alpine
+    #image: postgres
+    image: postgres:10-alpine
     restart: always
     volumes:
       - ./db_data:/var/lib/postgresql/data

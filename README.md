@@ -6,7 +6,7 @@ Features:
 - migration generation and autorun on start
 - modular style models
 - semi-functional code-sharing between models towards auto-CRUD
-- fully functional dev environment with dockerized postgresql
+- fully functional dev environment with dockerized postgresql and adminer
 - linting and prettify git commit hooks
 - testing foundation 
 
@@ -23,7 +23,7 @@ First, ensure Docker is running. Then,
 yarn postgres:start
 sleep 10
 yarn bootstrap
-yarn start
+yarn dev
 ```
 
 
