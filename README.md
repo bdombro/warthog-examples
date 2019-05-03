@@ -1,10 +1,8 @@
-# Example 1 - User Model
-
-## Setup
+# Setup
 
 Run `yarn bootstrap && yarn start`
 
-## Bootstrapping the App
+# Bootstrapping the App
 
 Running `yarn bootstrap` will do the following:
 
@@ -12,10 +10,30 @@ Running `yarn bootstrap` will do the following:
 - Create the example DB
 - Generate code in `generated` folder
 
-## Generate DB schema migration
 
-To automatically generate a schema migration file, run `yarn db:migration:generate`.  The migration will be put in the `db/migrations` folder
+# Typeorm Command Examples
 
-## Run the DB migration
+- To bypass migrations and force a sync of schema
+`yarn typeorm:cli schema:sync`
 
-To run the DB migration, run `yarn db:migration:run`
+- Drop schema
+`yarn typeorm:cli schema:drop`
+
+- To create a shell of a migration
+`yarn typeorm:cli migration:create -n <name of migration>`
+
+- To generate a migration automatically
+`yarn typeorm:cli migration:generate -n <name of migration>`
+
+- Migrations are ran by default at start using .env, but you can manually run them with this command
+`yarn typeorm:cli migration:run`
+
+- Revert migration
+`yarn typeorm:cli migration:revert`
+
+- Query
+`yarn typeorm:cli query 'select * from user;'`
+
+- Test?
+`yarn typeorm:cli schema:log`
+

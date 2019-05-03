@@ -28,7 +28,6 @@ manifest.json
 dist
 .serverless
 .webpack
-.env
 coverage
 db_data
 
@@ -47,3 +46,4 @@ tmp
 
 # Generated
 generated/*
+!generated/migrations
