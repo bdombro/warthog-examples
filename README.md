@@ -9,7 +9,6 @@ Branches in this repo are examples is a [warthog](https://github.com/goldcaddy77
 Features:
 - migration generation and autorun on start
 - modular style models
-- semi-functional code-sharing between models towards auto-CRUD
 - fully functional dev environment with dockerized postgresql and adminer
 - linting and prettify git commit hooks
 - testing foundation 
