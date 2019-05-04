@@ -11,8 +11,6 @@
     "postgres:stop": "cd postgres && docker-compose stop",
     "postgres:clean": "docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume prune -f; rm -rf postgres/db_data/*",
     "typeorm:cli": "ts-node ./node_modules/.bin/typeorm -f ./generated/ormconfig.ts",
-    "db:create": "createdbjs --password=$(dotenv -p TYPEORM_PASSWORD) $(dotenv -p TYPEORM_DATABASE) 2>&1 || :",
-    "db:drop": "dropdbjs --password=$(dotenv -p TYPEORM_PASSWORD) $(dotenv -p TYPEORM_DATABASE) 2>&1 || :",
     "db:seed:dev": "NODE_ENV=development ts-node tools/seed.ts",
     "generate:code": "NODE_ENV=development dotenv -- ts-node tools/generate.ts",
     "playground:open": "open http://localhost:$(dotenv -p APP_PORT)/graphql",
