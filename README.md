@@ -1,6 +1,10 @@
-# warthog-migration-example
+# warthog-examples
 
-This demo is a [warthog](https://github.com/goldcaddy77/warthog) typeorm + apollo graphql framework demo app.
+Branches in this repo are examples is a [warthog](https://github.com/goldcaddy77/warthog) typeorm + apollo graphql framework demo app.
+
+# Branches
+
+## master - migrations
 
 Features:
 - migration generation and autorun on start
@@ -10,10 +14,18 @@ Features:
 - linting and prettify git commit hooks
 - testing foundation 
 
+## fullstack (coming soon)
+
+Features:
+- All of the features of the master branch, plus
+- Authentication middleware using [Passport](https://github.com/jaredhanson/passport)
+- middleware for serving a static website, such as React
+- A hyper-modern React PWA that consumes the Warthog GraphQL API and authenticates with Passport
+- Secured resolvers
+
 ## Status
 
 Working and informative!
-
 
 ## Setup
 
