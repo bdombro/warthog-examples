@@ -2,9 +2,9 @@
 
 Branches in this repo are examples is a [warthog](https://github.com/goldcaddy77/warthog) typeorm + apollo graphql framework demo app.
 
-# Branches
+## Branches
 
-## master - migrations
+### master - migrations
 
 Features:
 - migration generation and autorun on start
@@ -14,7 +14,7 @@ Features:
 - linting and prettify git commit hooks
 - testing foundation 
 
-## fullstack (coming soon)
+### fullstack (coming soon)
 
 Features:
 - All of the features of the master branch, plus
