@@ -37,8 +37,8 @@ export class UserResolver extends BaseResolver<User> {
 
   @Mutation(() => User)
   async updateUser(
-      @Args() { data, where }: UserUpdateArgs,
-      @Ctx() ctx: BaseContext
+    @Args() { data, where }: UserUpdateArgs,
+    @Ctx() ctx: BaseContext
   ): Promise<User> {
     return this.update(data, where, ctx.user.id);
   }

@@ -6,6 +6,7 @@ export function getServer(AppOptions = {}) {
   return new Server(
     {
       introspection: true,
+      openPlayground: false,
       warthogImportPath: 'warthog',
       ...AppOptions
     },

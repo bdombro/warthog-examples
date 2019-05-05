@@ -17,7 +17,7 @@
     "dev": "DEBUG=warthog* ts-node-dev --type-check src/index.ts",
     "start": "ts-node src/index.ts",
     "test": "jest --detectOpenHandles --verbose --coverage",
-    "watch:ts": "nodemon -e ts,graphql -x ts-node --type-check src/index.ts",
+    "watch:ts": "NODE_ENV=development nodemon -e ts,graphql -x ts-node --type-check src/index.ts",
     "prettier": "prettier ./{src,test,tools}/**/*.ts --write",
     "lint": "tslint --fix -t stylish -c ./tslint.json -p ./tsconfig.json",
     "list:users": "ts-node ./tools/list-users.ts",
