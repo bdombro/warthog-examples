@@ -8,6 +8,9 @@ export function getServer(AppOptions = {}) {
       introspection: true,
       openPlayground: false,
       warthogImportPath: 'warthog',
+      // resolversPath: [
+      //   process.cwd() + '/**/*.resolver.ts',
+      // ],
       ...AppOptions
     },
     // Make sure TypeORM does not auto-update the DB schema so that we know our CLI commands

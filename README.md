@@ -21,10 +21,11 @@ Features:
 - middleware for serving a static website, such as React
 - A hyper-modern React PWA that consumes the Warthog GraphQL API and authenticates with Passport
 - Secured resolvers
+- Git hooks to ensure code style and tests pass
 
 ## Status
 
-Working and informative!
+Working and informative, except tests! The test file was borrowed from the [warthog-starter](https://github.com/goldcaddy77/warthog-starter/blob/master/test/user.integration.test.ts) project and are incompatible with the latest version of warthog.
 
 ## Setup
 

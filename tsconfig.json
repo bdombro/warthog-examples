@@ -3,7 +3,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
-    "outDir": "./dist",
+    //"outDir": "./dist",
+    "noEmit": true,
     "lib": ["dom", "es5", "es6", "es7", "esnext", "esnext.asynciterable"],
     "target": "es2017",
     "module": "commonjs",
@@ -20,6 +21,8 @@
     "strictNullChecks": true,
     "types": ["jest", "isomorphic-fetch", "node"]
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "exclude": ["node_modules/**/*", "generated/**/*", "tools/**/*"]
 }
