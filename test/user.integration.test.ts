@@ -6,8 +6,9 @@ import { Container } from 'typedi';
 
 // TODO: If we create an integration test harness, we could make app a global and also load dotenv as part of the setup.
 // Needs to happen before you import any models
-import { getApp } from '../src/app';
-const app = getApp({ container: Container }, { logging: false });
+import { getServer } from '../src/server';
+// const server = getServer({mockDBConnection: true});
+const server = getServer();
 
 import { Binding } from '../generated/binding';
 import { User, UserStatus } from '../src/user/user.model';
@@ -18,18 +19,22 @@ const key = new Date().getTime().toString();
 
 beforeAll(async done => {
   // TODO: this masks errors when they happen, we should figure out how to spy and call through
-  console.error = jest.fn();
+  // console.error = jest.fn();
 
   try {
-    await app.start();
+    console.log('start');
+    await server.start();
+    console.log('started');
   } catch (error) {
     throw new Error(error);
   }
 
-  binding = ((await app.getBinding()) as unknown) as Binding; // TODO: clean this up
+  binding = ((await server.getBinding()) as unknown) as Binding; // TODO: clean this up
 
   try {
+    console.log('createTestUser');
     testUser = await createTestUser();
+    console.log('createTestUser: ' + testUser.email);
   } catch (error) {
     throw new Error(error);
   }
@@ -39,12 +44,13 @@ beforeAll(async done => {
 
 afterAll(async done => {
   (console.error as any).mockRestore();
-  await app.stop();
+  await server.stop();
   done();
 });
 
 describe('Users', () => {
   test('find user by id', async done => {
+    console.log('find user by id');
     expect(testUser).toBeTruthy();
 
     const user = await binding.query.user({ where: { id: String(testUser.id) } }, `{ id }`);
@@ -58,6 +64,7 @@ describe('Users', () => {
   });
 
   test('createdAt sort', async done => {
+    console.log('createdAt sort');
     const users = await binding.query.users(
       { limit: 1, orderBy: 'createdAt_DESC' },
       `{ id firstName}`
@@ -71,6 +78,7 @@ describe('Users', () => {
   });
 
   test('uniqueness failure', async done => {
+    console.log('uniqueness failure');
     let error: GraphQLError = new GraphQLError('');
     try {
       await createTestUser();

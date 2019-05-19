@@ -46,4 +46,3 @@ tmp
 
 # Generated
 generated/*
-!generated/migrations
