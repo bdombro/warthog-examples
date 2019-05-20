@@ -12,6 +12,7 @@ Features:
 - fully functional dev environment with dockerized postgresql and adminer
 - linting and prettify git commit hooks
 - testing foundation 
+- Secure password storage using bcrypt
 
 ### fullstack (coming soon)
 
@@ -22,18 +23,17 @@ Features:
 - A hyper-modern React PWA that consumes the Warthog GraphQL API and authenticates with Passport
 - Secured resolvers
 - Git hooks to ensure code style and tests pass
-- Secure password storage using bcrypt
 
 ## Status
 
-Working and informative, except tests! The test file was borrowed from the [warthog-starter](https://github.com/goldcaddy77/warthog-starter/blob/master/test/user.integration.test.ts) project and are incompatible with the latest version of warthog.
+Working and informative! Everything works!
 
 ## Setup
 
 First, ensure Docker is running. Then,
 
 ```
-yarn postgres:start
+yarn test:postgres:start
 sleep 10
 yarn bootstrap
 yarn dev
@@ -47,6 +47,7 @@ Running `yarn bootstrap` will do the following:
 - Install packages
 - Create the example DB
 - Generate code in `generated` folder
+- Run outstanding migrations
 
 
 ## Typeorm Command Examples
