@@ -1,3 +1,5 @@
+import { hashSync } from 'bcryptjs';
+import { BeforeInsert, BeforeUpdate } from 'typeorm';
 import { BaseModel, EmailField, EnumField, Model, StringField } from 'warthog';
 
 // Note: this must be exported and in the same file where it's attached with @EnumField
@@ -9,7 +11,13 @@ export enum UserStatus {
 
 @Model()
 export class User extends BaseModel {
-  @StringField({ maxLength: 30 })
+  @EmailField({ nullable: true })
+  email?: string;
+
+  @StringField({ maxLength: 72, minLength: 8, nullable: true })
+  password?: string;
+
+  @StringField({ maxLength: 30, nullable: true })
   firstName?: string;
 
   @StringField({ maxLength: 50, minLength: 2, nullable: true })
@@ -17,6 +25,11 @@ export class User extends BaseModel {
 
   @EnumField('UserStatus', UserStatus)
   status?: UserStatus;
-
-  @EmailField() email?: string;
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashPassword() {
+    if (this.password) {
+      this.password = hashSync(this.password, 8);
+    }
+  }
 }

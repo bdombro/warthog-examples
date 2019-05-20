@@ -32,7 +32,7 @@ export class UserResolver extends BaseResolver<User> {
 
   @Mutation(() => User)
   async createUser(@Arg('data') data: UserCreateInput, @Ctx() ctx: BaseContext): Promise<User> {
-    return this.create(data, ctx.user.id);
+    return this.create(data, ctx.user ? ctx.user.id : '_SYSTEM');
   }
 
   @Mutation(() => User)

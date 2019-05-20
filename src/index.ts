@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-
 import { getServer } from './server';
 
 async function bootstrap() {

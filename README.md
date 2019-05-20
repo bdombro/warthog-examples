@@ -22,6 +22,7 @@ Features:
 - A hyper-modern React PWA that consumes the Warthog GraphQL API and authenticates with Passport
 - Secured resolvers
 - Git hooks to ensure code style and tests pass
+- Secure password storage using bcrypt
 
 ## Status
 

@@ -1,26 +1,18 @@
 import 'reflect-metadata';
 
-import * as dotenv from 'dotenv';
 import * as Faker from 'faker';
 import { Container } from 'typedi';
-
-dotenv.config();
 
 import { getServer } from '../src/server';
 import { UserStatus } from '../src/user/user.model';
 
-if (process.env.NODE_ENV !== 'development') {
-  throw new Error('Seeding only available in development environment');
-  process.exit(1);
-}
-
 const NUM_USERS = 100;
 
 async function seedDatabase() {
-  const app = getServer({ container: Container, openPlayground: false });
-  await app.start();
+  const server = getServer({ container: Container, openPlayground: false });
+  await server.start();
 
-  const binding = await app.getBinding();
+  const binding = await server.getBinding();
 
   for (let index = 0; index < NUM_USERS; index++) {
     const random = new Date()
@@ -32,6 +24,7 @@ async function seedDatabase() {
     const email = `${firstName
       .substr(0, 1)
       .toLowerCase()}${lastName.toLowerCase()}-${random}@fakeemail.com`;
+    const password = new Date().getTime().toString();
     const status = Math.random() > 0.2 ? UserStatus.ACTIVE : UserStatus.INACTIVE;
 
     try {
@@ -41,6 +34,7 @@ async function seedDatabase() {
             email,
             firstName,
             lastName,
+            password,
             status
           }
         },
@@ -53,7 +47,7 @@ async function seedDatabase() {
     }
   }
 
-  return app.stop();
+  return server.stop();
 }
 
 seedDatabase()

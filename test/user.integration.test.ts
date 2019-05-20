@@ -19,7 +19,7 @@ const key = new Date().getTime().toString();
 
 beforeAll(async done => {
   // TODO: this masks errors when they happen, we should figure out how to spy and call through
-  // console.error = jest.fn();
+  console.error = jest.fn();
 
   try {
     console.log('start');
@@ -32,9 +32,7 @@ beforeAll(async done => {
   binding = ((await server.getBinding()) as unknown) as Binding; // TODO: clean this up
 
   try {
-    console.log('createTestUser');
     testUser = await createTestUser();
-    console.log('createTestUser: ' + testUser.email);
   } catch (error) {
     throw new Error(error);
   }

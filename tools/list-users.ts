@@ -1,9 +1,6 @@
 import 'reflect-metadata';
 
-import * as dotenv from 'dotenv';
 import { Container } from 'typedi';
-
-dotenv.config();
 
 import { Binding } from '../generated/binding';
 import { getServer } from '../src/server';

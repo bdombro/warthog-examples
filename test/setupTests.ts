@@ -9,7 +9,7 @@ dotenv.config();
 // If debugging in VSCode, set the timeout to
 const timeoutDebug = 60 * 60 * 1000; // one hour
 const timeoutRegular = 5000; // 5 seconds
-const timeout = process.env.NODE_ENV === 'test' ? timeoutDebug : timeoutRegular;
+const timeout = process.env.NODE_ENV === 'test.ts' ? timeoutDebug : timeoutRegular;
 
 jest.setTimeout(timeout);
 if (jasmine && typeof jasmine.DEFAULT_TIMEOUT_INTERVAL !== 'undefined') {
